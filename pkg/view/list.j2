@@ -25,13 +25,13 @@ download
         <tr>
             <td><a href="/view/{{formatPath(path)}}">..</a></td>
             <td class="gray">..</td>
-            <td class="gray">Created Infinite time ago</td>
+            <td class="gray">Updated Unknown time ago</td>
         </tr>
         {% for entry in entries %}
         <tr>
             <td><a href="/view/{{formatPath(entry.Path)}}" {{download(not entry.IsDir)}}>{{entry.Name}}</a></td>
             <td class="gray">/{{formatPath(entry.Path)}}</td>
-            <td class="gray">{{formatTime(entry.CreatedAt, "Created")}}</td>
+            <td class="gray">{{formatTime(entry.Modified.At, "Updated ")}}</td>
         </tr>
         {% endfor %}
         </tbody>

@@ -1,0 +1,24 @@
+body {
+    font-family: sans-serif;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid hsl(0, 0%, 91%);
+    border-radius: 5px;
+    overflow: hidden;
+}
+td {
+    border-bottom: 1px solid hsl(0, 0%, 91%);
+    padding: 10px;
+}
+thead {
+    background: hsl(0, 0%, 0%);
+    color: white;
+}
+td.gray {
+    color: hsl(0, 0%, 53%);
+}
+a {
+    color: cornflowerblue;
+}

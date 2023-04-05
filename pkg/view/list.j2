@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <style>
+    {% include "pkg/view/index.css" %}
+    </style>
+</head>
+{% macro download(IsFile) -%}
+{% if IsFile %}
+download
+{% else %}
+{% endif %}
+{%- endmacro %}
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>path</td>
+                <td>created_at</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="/view/{{formatPath(path)}}">..</a></td>
+            <td class="gray">..</td>
+            <td class="gray">Created Infinite time ago</td>
+        </tr>
+        {% for entry in entries %}
+        <tr>
+            <td><a href="/view/{{formatPath(entry.Path)}}" {{download(not entry.IsDir)}}>{{entry.Name}}</a></td>
+            <td class="gray">/{{formatPath(entry.Path)}}</td>
+            <td class="gray">{{formatTime(entry.CreatedAt, "Created")}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

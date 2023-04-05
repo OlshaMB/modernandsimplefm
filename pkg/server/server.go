@@ -1,6 +1,7 @@
 package server
 
 import (
+	"github.com/OlshaMB/modernandsimplefm/cmd/config"
 	"github.com/OlshaMB/modernandsimplefm/pkg/routes"
 	"github.com/gin-gonic/gin"
 	"github.com/noirbizarre/gonja"
@@ -10,5 +11,5 @@ func Server() {
   r := gin.Default()
   r.GET("/list/*path", routes.ListDir)
   r.GET("/view/*path", routes.View)
-  r.Run()
+  r.Run(config.Cfg.Location)
 }

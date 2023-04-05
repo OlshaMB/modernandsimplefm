@@ -22,8 +22,12 @@ func View(c *gin.Context) {
 			c.Status(http.StatusNotFound)
 			return
 		}
-
-		http.ServeContent(c.Writer, c.Request, "text.go", time.Now(), file)
+		metadata, err := file.Stat()
+		if err != nil {
+			c.Status(http.StatusNotFound)
+			return
+		}
+		http.ServeContent(c.Writer, c.Request, "text.go", metadata.ModTime(), file)
 		return
 	}
 	if err != nil {
